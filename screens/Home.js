@@ -18,6 +18,7 @@ const todayScore = async() =>{
   try{
     const sessionToken = await AsyncStorage.getItem('sessionToken')
     const userName = await AsyncStorage.getItem('userName')
+    console.log('userName', userName); //terminal info
     token.current = sessionToken
     const scoreResponse = await fetch('https://dev.stedi.me/riskscore/' + userName,{
     method:'GET',
