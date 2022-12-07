@@ -56,7 +56,11 @@ const Profile = (props) => {
       }
     }
 if (profilePhoto == null){
-  return(
+    const cameraOptions={
+    quality:0,
+    exif:false
+    }
+  return (
     <View style={styles.container}>
       <Camera type={CameraType.front} style={styles.container} ref={cameraRef} onCameraReady={()=> {setCameraReady(true)}}>
         <View style={styles.buttonContainer}>
@@ -87,8 +91,8 @@ shadowRadius: 2.62,
 elevation: 4}}>
      <CardContent>
      <Image style={{height: 100, width:100, borderRadius: 75}}
-      source={require('../image/Profilephoto.jpg')} />
-    <Text style={{marginTop:10,marginBottom:10,fontWeight: 'bold'}}>Ekene Okeke</Text>
+      source={{uri:profilePhoto}} />
+    <Text style={{marginTop:10,marginBottom:10,fontWeight: 'bold'}}>{userName}</Text>
 
     <Text style={{marginTop:20,marginBottom:2}}>This Week's progress</Text>
 {/* <BarChart barColor='green' data={data} horizontalData={horizontalData} /> */}
